@@ -386,7 +386,7 @@ extension HomeVC: UITableViewDataSource{
         let homeCatsTCell = tableView.dequeueReusableCell(withIdentifier: "HomeCatsTCell", for: indexPath) as! HomeCatsTCell
         
         
-        homeCatsTCell.lblBreedName.text = "Breed Name: \(Globals.arrAllCatsImages[indexPath.row].breeds?.first?.name ?? " Not Available")"
+        homeCatsTCell.lblBreedName.text = "Breed: \(Globals.arrAllCatsImages[indexPath.row].breeds?.first?.name ?? " Not Available")"
         
         homeCatsTCell.btnFavourite.tag = indexPath.row
         

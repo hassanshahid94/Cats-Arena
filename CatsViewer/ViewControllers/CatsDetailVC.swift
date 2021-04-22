@@ -112,7 +112,7 @@ extension CatsDetailVC: UITableViewDataSource{
         }
         else if indexPath.row == 2
         {
-            catsDetailTCell.lblHeading.text = "Breed Name:"
+            catsDetailTCell.lblHeading.text = "Breed:"
             catsDetailTCell.lblDetail.text = Globals.arrAllCatsImages[index].breeds?.first?.name ?? "Not Available"
         }
         else if indexPath.row == 3
