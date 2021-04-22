@@ -1,0 +1,6 @@
+framework module LNFloatingActionButton {
+  umbrella header "LNFloatingActionButton-umbrella.h"
+
+  export *
+  module * { export * }
+}
