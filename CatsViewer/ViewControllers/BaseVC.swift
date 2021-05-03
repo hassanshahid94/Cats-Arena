@@ -14,29 +14,22 @@ class BaseVC: UIViewController {
     // MARK: - Load
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
     // MARK: - Functions
-    func startLoader()
-    {
+    func startLoader() {
         RappleActivityIndicatorView.startAnimating(attributes: RappleModernAttributes)
     }
-    func stopLoader()
-    {
+    func stopLoader() {
         RappleActivityIndicatorView.stopAnimation()
     }
-    
-    func showAlert(message: String)
-    {
+    func showAlert(message: String) {
         let alert = UIAlertController(title: "Cats Viewer", message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
-    
-    func cleanAllCache()
-    {
+    func cleanAllCache() {
         DataCache.instance.cleanAll()
     }
 }

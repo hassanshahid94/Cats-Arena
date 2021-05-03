@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct Globals{
+struct Globals {
     
     public static var arrCatsBreeds: [CatsViewerBreedsResponse]!
     public static var arrAllCatsImages: [CatsViewerAllCatsResponse]!

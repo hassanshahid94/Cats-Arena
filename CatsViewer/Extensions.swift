@@ -23,9 +23,7 @@ extension UIView {
 
 // MARK: - UIColor Extension
 extension UIColor {
-    
     static let CatsViewer_tabBar_Selection = UIColor(hex: 0x87CBAC)
-    
     // Create a UIColor from RGB
     convenience init(red: Int, green: Int, blue: Int, a: CGFloat = 1.0) {
         self.init(
@@ -35,7 +33,6 @@ extension UIColor {
             alpha: a
         )
     }
-    
     // Create a UIColor from a hex value (E.g 0x000000)
     convenience init(hex: Int, a: CGFloat = 1.0) {
         self.init(
@@ -47,10 +44,9 @@ extension UIColor {
     }
 }
 
-
+// MARK: - UIButton Animation
 extension UIButton {
-    func animation (){
-        
+    func animation () {
         let btn = self
         let pulse = CASpringAnimation(keyPath: "transform.scale")
         pulse.duration = 0.4

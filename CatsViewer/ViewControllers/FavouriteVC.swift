@@ -17,42 +17,36 @@ class FavouriteVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         getFavourties()
     }
     
     //MARK:- Actions
     @IBAction func btnRemoveFavourtieAction(_ sender: UIButton) {
-        
         sender.animation()
         let params = DeleteFavouriteBody()
         params.favouriteId = Globals.arrFavouriteCatsImages[sender.tag].id!
         ServerManager.deleteFavourite(params: params) { (status) in
-            if status == "success"
-            {
+            if status == "success" {
                 self.vwCollectionFavourties.reloadData()
                 self.getFavourties()
             }
-            else{
+            else {
                 self.showAlert(message: status)
             }
         }
     }
     
     // MARK: - Functions
-    func getFavourties()
-    {
+    func getFavourties() {
         let params = FavourtieBody()
         params.subId = Constants.UDID!
         ServerManager.getFavourites(params: params) { (status, data) in
-            if status == "success"
-            {
+            if status == "success" {
                 Globals.arrFavouriteCatsImages = data
                 self.vwCollectionFavourties.reloadData()
             }
-            else
-            {
+            else {
                 self.showAlert(message: status)
             }
         }
@@ -66,37 +60,27 @@ extension FavouriteVC: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let favouriteCatsCCell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavouriteCatsCCell", for: indexPath) as! FavouriteCatsCCell
-        
         favouriteCatsCCell.btnRemoveFavourite.tag = indexPath.row
-   
         favouriteCatsCCell.imgCat.sd_imageIndicator = SDWebImageActivityIndicator.large
         favouriteCatsCCell.imgCat.sd_setImage(with: URL(string: Globals.arrFavouriteCatsImages[indexPath.row].image?.url ?? ""), placeholderImage: UIImage(named: "placeholder"))
-        
         return favouriteCatsCCell
     }
 }
 
 //MARK:- UICollectionView Delegate and Flowlayout
 extension FavouriteVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize
-        {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.size.width/2, height: collectionView.frame.size.height/3)
-
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-
-        return UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat
-    {
-        return 5
         
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat
-    {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
 }

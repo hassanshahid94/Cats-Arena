@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 
 
-class CatsViewerBreedsResponse : NSObject, Mappable{
+class CatsViewerBreedsResponse : NSObject, Mappable {
 
 	var adaptability : Int?
 	var affectionLevel : Int?
@@ -52,15 +52,13 @@ class CatsViewerBreedsResponse : NSObject, Mappable{
 	var weight : CatsViewerWeight?
 	var wikipediaUrl : String?
 
-
-	class func newInstance(map: Map) -> Mappable?{
+	class func newInstance(map: Map) -> Mappable? {
 		return CatsViewerBreedsResponse()
 	}
 	required init?(map: Map){}
 	private override init(){}
 
-	func mapping(map: Map)
-	{
+	func mapping(map: Map) {
 		adaptability <- map["adaptability"]
 		affectionLevel <- map["affection_level"]
 		altNames <- map["alt_names"]
@@ -100,7 +98,6 @@ class CatsViewerBreedsResponse : NSObject, Mappable{
 		vetstreetUrl <- map["vetstreet_url"]
 		vocalisation <- map["vocalisation"]
 		weight <- map["weight"]
-		wikipediaUrl <- map["wikipedia_url"]
-		
+		wikipediaUrl <- map["wikipedia_url"]	
     }
 }

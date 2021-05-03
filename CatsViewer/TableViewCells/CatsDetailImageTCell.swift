@@ -18,15 +18,14 @@ class CatsDetailImageTCell: UITableViewCell {
         // Initialization code
         initView()
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-    func initView()
-    {
+    //MARK:- Functions
+    func initView() {
         imgCat.layer.cornerRadius = 7
     }
 

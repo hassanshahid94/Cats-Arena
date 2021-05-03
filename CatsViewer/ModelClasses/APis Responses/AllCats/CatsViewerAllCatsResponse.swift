@@ -9,7 +9,7 @@ import Foundation
 import ObjectMapper
 
 
-class CatsViewerAllCatsResponse : NSObject, Mappable{
+class CatsViewerAllCatsResponse : NSObject, Mappable  {
 
 	var breeds : [CatsViewerBreedsResponse]?
 	var height : Int?
@@ -19,15 +19,13 @@ class CatsViewerAllCatsResponse : NSObject, Mappable{
     var isFavourtie: Bool!
     var favouriteId: Int!
 
-
-	class func newInstance(map: Map) -> Mappable?{
+	class func newInstance(map: Map) -> Mappable? {
 		return CatsViewerAllCatsResponse()
 	}
 	required init?(map: Map){}
 	private override init(){}
 
-	func mapping(map: Map)
-	{
+	func mapping(map: Map) {
 		breeds <- map["breeds"]
 		height <- map["height"]
 		id <- map["id"]

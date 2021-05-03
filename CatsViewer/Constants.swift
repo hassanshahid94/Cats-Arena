@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Constants{
+struct Constants {
     
     static let baseURL = "https://api.thecatapi.com/"
     static let apiKey =  "9b7e282d-2a67-4c7b-a9fd-3f3e4056e949"

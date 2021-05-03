@@ -18,7 +18,6 @@ class FavouriteCatsCCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         initViews()
-        
     }
     
     //MARK: Functions
